@@ -1,10 +1,5 @@
 package lab3.sort;
 
-import java.util.Arrays;
-import java.util.Collections;
-
-import static java.util.Collections.swap;
-
 
 public class LabSorter {
 
@@ -15,21 +10,16 @@ public class LabSorter {
      * @return отсортированный массив
      */
     public int[] sort(int[] source) {
-        int[] array = new int[0];{
-            boolean sorted = false;
-            int temp;
-            while (!sorted) {
-                sorted = true;
-                for (int i = 0; i < array.length - 1; i++) {
-                    if (array[i] > array[i + 1]) {
-                        temp = array[i];
-                        array[i] = array[i + 1];
-                        array[i + 1] = temp;
-                        sorted = false;
-                    }
+        int len = source.length;
+        for (int right = len - 1; right >= 1; right--) {
+            for (int left = 0; left < right; left++) {
+                if(source[left] > source[left +1]){
+                    int temp = source[left];
+                    source[left] = source[left +1];
+                    source[left +1] = temp;
                 }
             }
         }
-        return array;
+        return source;
     }
 }
